@@ -493,8 +493,10 @@ document.addEventListener("DOMContentLoaded", function() {
   // Función para reproducir sonido personalizado
   function playCustomSound() {
     const audio = new Audio("alerta.mp3"); // Asegúrate de que "alerta.mp3" esté en la ruta correcta
+    audio.volume = 0.1; // Ajusta el volumen al 50%
     audio.play();
-  }
+    }
+
 
   // Función para actualizar el favicon con el mismo color que el fondo
   function updateFavicon(color) {
