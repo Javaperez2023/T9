@@ -1,0 +1,129 @@
+* {
+    font-family: 'Verdana';
+}
+
+h1 {
+  font-size: 27px; /* 40px → 27px */
+}
+
+h1, h2, .labelName, .labelCorreo, p, label {
+  color: white;
+}
+
+.labelName, .labelCorreo, .botones, p, label {
+  padding: 7px;     /* 10px → 7px */
+  font-size: 12px;  /* 18px → 12px */
+}
+
+input {
+  background: none;
+  color: white;
+  width: 100%;
+  border: none;
+  height: 17px;     /* 25px → 17px */
+  outline: none;
+  font-size: 12px;  /* 18px → 12px */
+  /* Se mantiene el borde inferior en 1px para claridad */
+  border-bottom: 1px solid white;
+}
+
+textarea {
+  background: none;
+  color: white;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: 12px;  /* 18px → 12px */
+  padding: 7px;     /* 10px → 7px */
+}
+
+button {
+  margin: 13px;         /* 20px → 13px */
+  height: 20px;
+  color: gray;
+  border: none;
+  background-color: white;
+  border-radius: 3px;   /* 5px → 3px */
+  cursor: pointer;
+  box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.8); /* 6px → 4px en el blur */
+}
+
+/* Estilos para la distribución en columnas y ajuste del contenedor */
+.container {
+  width: 100%;
+  max-width: 804px;     /* 1200px → ~804px */
+  margin: 0 auto;
+  padding: 27px;        /* 40px → 27px */
+  background: linear-gradient(#666666, #1a1a1a);
+  border-radius: 13px;  /* 20px → 13px */
+  box-shadow: 0 0 4px 0 black;  /* 6px → 4px en el blur */
+}
+
+.row {
+  display: flex;
+  gap: 7px;  /* 10px → 7px */
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;  /* 10px → 7px */
+}
+
+/* Estilo para la parte superior de la columna derecha (selector de archivo y botones Excel) */
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;  /* 10px → 7px */
+}
+
+/* Estilos agregados para el temporizador */
+#countdownCanvas {
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+/* Estilos para el botón PIP: forzamos la misma altura que los otros botones */
+#pipButton {
+  margin-top: 20px;
+  height: 20px;        /* Altura fija igual a los otros botones */
+  line-height: 20px;   /* Centra verticalmente el texto */
+  font-size: 12px;     /* Igual que el resto (ajustar si se prefiere) */
+  padding: 0 20px;     /* Sin padding vertical para no aumentar la altura */
+}
+
+/* Regla para la columna derecha: OBS arriba y sección de archivo abajo */
+.column.right-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px; /* Ajusta este valor según lo que necesites */
+}
+
+/* Los controles de archivo ya están configurados para apilarse y ocupar el ancho completo */
+.file-section {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.file-section input,
+.file-section button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Nueva regla para que los botones de OBS se apilen y ocupen el ancho completo */
+.obs-section {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.obs-section button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}

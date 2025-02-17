@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ayudante de Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- Columna Izquierda: Título e inputs con sus labels -->
+      <div class="column left-col">
+        <h1>Ayudante de Tareas</h1>
+        <label for="date">DATE:</label>
+        <input type="text" class="clock" readonly>
+
+        <label for="id">ID:</label>
+        <input type="text" class="input-id" placeholder="Ingresa el ID">
+
+        <label for="rut">RUT:</label>
+        <input type="text" class="input-rut" placeholder="Ingresa el Rut">
+
+        <label for="name">NOMBRE:</label>
+        <input type="text" class="input-name" placeholder="Ingresa el Nombre">
+
+        <label for="fono">FONO:</label>
+        <input type="text" class="input-phone1" placeholder="Ingresa el Teléfono">
+        <input type="text" class="input-phone2" placeholder="Ingresa el Teléfono Secundario">
+
+        <label for="ont">ONT:</label>
+        <input type="text" class="input-ont" placeholder="Ingresa el ONT">
+        
+        <label for="olt">OLT:</label>
+        <input type="text" class="input-olt" placeholder="Ingresa el OLT">
+        
+        <label for="nodo">TARJETA:</label>
+        <input type="text" class="input-nodo" placeholder="Ingresa la Tarjeta">
+
+        <label for="direccion">DIRECCIÓN Y NODO:</label>
+        <input type="text" class="input-address" placeholder="Ingresa la Dirección y NODO">
+      </div>
+
+      <!-- Columna Central: Temporizador y luego Checkboxes y listas desplegables -->
+      <div class="column middle-col">
+        <!-- Temporizador (integrado desde temp.html) -->
+        <canvas id="countdownCanvas" width="200" height="100"></canvas>
+        <button id="pipButton">Desacoplar</button>
+        <video id="pipVideo" style="display:none;" muted playsinline></video>
+        
+        <h2>Internet</h2>
+        <label>
+          <input type="checkbox" class="checkbox-internet-rojo"> Internet Rojo
+        </label>
+        <select class="select-internet-rojo" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Lentitud">Luz LOS en rojo</option>
+          <option value="Intermitencia">Perdida de señal</option>
+          <option value="Luz LOS en rojo">Verde - Power Off</option>
+          <option value="Cortes frecuentes">Rojo - Desconocido</option>
+          <option value="Sin acceso">Rojo - Autofind</option>
+          <option value="Ping alto">Rojo - Offline</option>
+          <option value="Desconexión">Fuera de rango</option>
+        </select>
+
+        <label>
+          <input type="checkbox" class="checkbox-internet-verde"> Internet Verde
+        </label>
+        <select class="select-internet-verde" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Buena velocidad">Verde - Desconocido</option>
+          <option value="Estable">Verde - Autofind</option>
+          <option value="Sin interferencias">Verde - Offline</option>
+          <option value="Red segura">Pendiente</option>
+          <option value="Conectividad óptima">Pendiente</option>
+          <option value="Ping bajo">Masiva</option>
+          <option value="Sin problemas">Acometida baja</option>
+        </select>
+
+        <label>
+          <input type="checkbox" class="checkbox-internet-base"> Internet Base
+        </label>
+        <select class="select-internet-base" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Base A">Sin internet</option>
+          <option value="Base B">Pérdida de monitoreo</option>
+          <option value="Base C">Intermitencia - Ok</option>
+          <option value="Base D">Intermitencia - Ko</option>
+          <option value="Base E">Repetidor</option>
+          <option value="Base F">Una página</option>
+          <option value="Base G">Clave Wifi</option>
+        </select>
+
+        <h2>Tv</h2>
+        <label>
+          <input type="checkbox" class="checkbox-tv-rojo"> Tv Rojo
+        </label>
+        <select class="select-tv-rojo" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Sin señal">Luz LOS en rojo</option>
+          <option value="Canales pixelados">Perdida de señal</option>
+          <option value="Sin audio">Verde - Power Off</option>
+          <option value="Control remoto fallido">Rojo - Desconocido</option>
+          <option value="Decodificador apagado">Rojo - Autofind</option>
+          <option value="Interferencia">Rojo - Offline</option>
+          <option value="Imagen distorsionada">Fuera de rango</option>
+        </select>
+
+        <label>
+          <input type="checkbox" class="checkbox-tv-verde"> Tv Verde
+        </label>
+        <select class="select-tv-verde" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Señal óptima">Verde - Desconocido</option>
+          <option value="Imagen nítida">Verde - Autofind</option>
+          <option value="Audio claro">Verde - Offline</option>
+          <option value="Control funcional">Pixelados/RF - Ok</option>
+          <option value="Deco activo">Pixelados/RF - Ko</option>
+          <option value="Canales completos">Sin señal Ok</option>
+          <option value="Sin interrupciones">Sin señal Ko</option>
+        </select>
+
+        <label>
+          <input type="checkbox" class="checkbox-tv-base"> Tv Base
+        </label>
+        <select class="select-tv-base" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Base X">Boot</option>
+          <option value="Base Y">Fallo Canal - Ok</option>
+          <option value="Base Z">Fallo Canal - Ko</option>
+          <option value="Base W">Deco Ok</option>
+          <option value="Base V">Deco Ko</option>
+          <option value="Base U">*</option>
+          <option value="Base T">*</option>
+        </select>
+
+        <!-- Nuevos checkboxes para Tv -->
+        <label>
+          <input type="checkbox" class="checkbox-tv-go"> Tv Go
+        </label>
+        <select class="select-tv-go" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Problema 1">Error 510 Ok</option>
+          <option value="Problema 2">Error 510 Ko</option>
+          <option value="Problema 3">Sin señal Ok</option>
+          <option value="Problema 4">Sin señal Ko</option>
+          <option value="Problema 5">*</option>
+          <option value="Problema 6">*</option>
+          <option value="Problema 7">*</option>
+        </select>
+
+        <label>
+          <input type="checkbox" class="checkbox-tv-go-plus"> Tv Go +
+        </label>
+        <select class="select-tv-go-plus" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Problema A">Baja Ok</option>
+          <option value="Problema B">Baja Ko</option>
+          <option value="Problema C">Vincular Ok</option>
+          <option value="Problema D">Vincular Ko</option>
+          <option value="Problema E">*</option>
+          <option value="Problema F">*</option>
+          <option value="Problema G">*</option>
+        </select>
+
+        <h2>Teléfono</h2>
+        <label>
+          <input type="checkbox" class="checkbox-phone-rojo"> Teléfono Rojo
+        </label>
+        <select class="select-phone-rojo" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="No recibe llamadas">Luz LOS en rojo</option>
+          <option value="No puede hacer llamadas">Perdida de señal</option>
+          <option value="Ruido en línea">Verde - Power Off</option>
+          <option value="Tono ocupado">Rojo - Desconocido</option>
+          <option value="Sin tono">Rojo - Autofind</option>
+          <option value="Desconectado">Rojo - Offline</option>
+          <option value="Corte total">Fuera de rango</option>
+        </select>
+
+        <label>
+          <input type="checkbox" class="checkbox-phone-verde"> Teléfono Verde
+        </label>
+        <select class="select-phone-verde" style="display: none;">
+          <option value="">Selecciona un problema</option>
+          <option value="Llamadas claras">Verde - Desconocido</option>
+          <option value="Buena recepción">Verde - Autofind</option>
+          <option value="Funciona perfectamente">Verde - Offline</option>
+          <option value="Sin interferencias">IDLE sin Tono - Ok</option>
+          <option value="Audio nítido">IDLE sin Tono - Ko</option>
+          <option value="Conectividad estable">REGISTE FAIL - Ok</option>
+          <option value="Sin cortes">REGISTE FAIL - Ko</option>
+        </select>
+      </div>
+
+      <!-- Columna Derecha: Sección OBS en la parte superior y controles de archivo al fondo -->
+      <div class="column right-col">
+        <div class="obs-section">
+          <label for="obs">OBS:</label>
+          <textarea class="textarea-obs"></textarea>
+          <button class="btn-copy">Copiar</button>
+          <button class="btn-generate">Generar</button>
+          <button class="btn-clear">Limpiar</button>
+          <p class="codigo-display"></p>
+        </div>
+        <div class="file-section">
+          <input type="file" class="file-upload" accept=".xlsx, .xls">
+          <button id="btn-saveExcel">Guardar</button>
+          <button id="btn-deleteExcel">Borrar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <script src="core.js"></script>
+</body>
+</html>
