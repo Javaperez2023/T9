@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Función para reproducir sonido personalizado
   function playCustomSound() {
     const audio = new Audio("alerta.mp3"); // Asegúrate de que "alerta.mp3" esté en la ruta correcta
-    audio.volume = 0.1; // Ajusta el volumen al 50%
+    audio.volume = 0.02; // Ajusta el volumen al 50%
     audio.play();
     }
 
